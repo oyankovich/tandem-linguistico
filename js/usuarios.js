@@ -17,6 +17,7 @@ const inputPassword = document.getElementById("password");
 const selectIdioma = document.getElementById("idiomaNativo");
 const divMensaje = document.getElementById("mensaje");
 const tablaUsuarios = document.getElementById("tablaUsuarios");
+const contadorUsuarios = document.getElementById("contadorUsuarios");
 
 // ===== Funciones =====
 
@@ -49,6 +50,13 @@ function emailValido(email) {
 // Vacía la tabla y la vuelve a rellenar con los usuarios del array
 function pintarTabla() {
   tablaUsuarios.innerHTML = "";
+
+  // Actualizamos el contador de la cabecera de la tabla
+  if (usuarios.length === 1) {
+    contadorUsuarios.textContent = "1 usuario registrado";
+  } else {
+    contadorUsuarios.textContent = usuarios.length + " usuarios registrados";
+  }
 
   // Si no hay usuarios, mostramos una fila con un aviso
   if (usuarios.length === 0) {
