@@ -1,6 +1,6 @@
+
 /* 
-IA Utilizada: Gemini
-Prompt 1: "Genera la estructura modular de datos.js basada en los textos, nombres y fechas exactas del mockup de Figma, incluyendo los campos requeridos por la rúbrica (idioma, nivel, modalidad)."
+Prompt 1: Pendiente de documentar.
 Prompt 2: Pendiente de documentar.
 Prompt 3: Pendiente de documentar.
 Prompt 4: Pendiente de documentar.
