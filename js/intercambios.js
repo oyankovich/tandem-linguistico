@@ -71,8 +71,8 @@ function pintarTabla() {
     // Badge con el color acordado: verde para ofertas, azul para peticiones
     const esOferta = intercambio.tipo === "oferta";
     const badge = esOferta
-      ? `<span class="badge text-bg-success oferta">Oferta</span>`
-      : `<span class="badge text-bg-primary peticion">Petición</span>`;
+      ? `<span class="badge text-bg-primary oferta">Oferta</span>`
+      : `<span class="badge text-bg-success peticion">Petición</span>`;
 
     const fila = document.createElement("tr");
     fila.innerHTML = `
