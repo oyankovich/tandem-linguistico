@@ -1,12 +1,3 @@
-<!--
-  USO DE IA GENERATIVA
-  IA utilizada: Claude (Anthropic)
-  Prompt 1: "Actúa como desarrollador full stack. A partir del enunciado del Producto 1 y del documento de reparto de tareas adjuntos, desarrolla la parte asignada a la Persona 4: la página intercambios.html y su script js/intercambios.js, con un formulario de alta validado, una tabla dinámica generada con pintarTabla() y un botón de eliminar con confirmación, usando Bootstrap 5, addEventListener y los datos importados de datos.js."
-  Prompt 2: "Explícame paso a paso, partiendo de cero, cómo preparar el entorno de trabajo (VS Code, Git y Live Server), cómo clonar el repositorio del grupo y en qué carpeta debe ubicarse cada archivo de mi parte."
-  Prompt 3: "Adapta intercambios.html e intercambios.js a los archivos actuales del repositorio (datos.js, index.html y login.html): reutiliza la navbar común, incorpora los campos titulo, fecha y nombreUsuario definidos en datos.js y proporcióname el código completo para copiarlo manualmente en VS Code."
-  Prompt 4: "Indícame los siguientes pasos tras probar la página con Live Server: cómo subir los cambios a GitHub con git pull, add, commit y push, cómo realizar las capturas para la documentación y cuál es la estructura y el funcionamiento de intercambios.js."
--->
-
 <!DOCTYPE html>
 
 <html lang="es">
@@ -66,7 +57,9 @@
             <section class="col-lg-5">
                 <div class="card shadow-sm h-100">
                     <div class="card-header bg-white py-3">
-                        <h2 class="h5 mb-1"><span class="badge rounded-pill text-bg-light text-primary me-2">01</span>Alta de Intercambio</h2>
+                        <h2 class="h5 mb-1"><span
+                                class="badge rounded-pill text-bg-light text-primary me-2">01</span>Alta de Intercambio
+                        </h2>
                         <p class="small text-muted mb-0">Crea una nueva oferta o petición.</p>
                     </div>
                     <div class="card-body">
@@ -76,9 +69,11 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold d-block">Tipo</label>
                                 <div class="btn-group w-100" role="group" aria-label="Tipo de intercambio">
-                                    <input type="radio" class="btn-check" name="tipo" id="tipoOferta" value="oferta" autocomplete="off">
+                                    <input type="radio" class="btn-check" name="tipo" id="tipoOferta" value="oferta"
+                                        autocomplete="off">
                                     <label class="btn btn-outline-primary" for="tipoOferta">Oferta</label>
-                                    <input type="radio" class="btn-check" name="tipo" id="tipoPeticion" value="peticion" autocomplete="off">
+                                    <input type="radio" class="btn-check" name="tipo" id="tipoPeticion" value="peticion"
+                                        autocomplete="off">
                                     <label class="btn btn-outline-success" for="tipoPeticion">Petición</label>
                                 </div>
                             </div>
@@ -86,7 +81,8 @@
                             <!-- Título -->
                             <div class="mb-3">
                                 <label for="titulo" class="form-label fw-semibold">Título</label>
-                                <input type="text" id="titulo" class="form-control" placeholder="Ej.: Conversación en inglés">
+                                <input type="text" id="titulo" class="form-control"
+                                    placeholder="Ej.: Conversación en inglés">
                             </div>
 
                             <!-- Idioma y nivel -->
@@ -159,7 +155,9 @@
             <section class="col-lg-7">
                 <div class="card shadow-sm h-100">
                     <div class="card-header bg-white py-3">
-                        <h2 class="h5 mb-1"><span class="badge rounded-pill text-bg-light text-primary me-2">02</span>Consulta y Borrado de Intercambios</h2>
+                        <h2 class="h5 mb-1"><span
+                                class="badge rounded-pill text-bg-light text-primary me-2">02</span>Consulta y Borrado
+                            de Intercambios</h2>
                         <p class="small text-muted mb-0" id="contadorIntercambios">0 intercambios registrados</p>
                     </div>
                     <div class="table-responsive">
