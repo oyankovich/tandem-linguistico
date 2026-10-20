@@ -7,12 +7,12 @@ Prompt 4: Pendiente de documentar.
 */
 
 export const usuarios = [
-    { id: 1, nombre: "Marina Soler", email: "marina.soler@test.com", password: "123", idiomaNativo: "Español" },
-    { id: 2, nombre: "Pau Riera", email: "pau.riera@test.com", password: "123", idiomaNativo: "Catalán" },
-    { id: 3, nombre: "Laia Ferrer", email: "laia.ferrer@test.com", password: "123", idiomaNativo: "Catalán" },
-    { id: 4, nombre: "Giorgio Bianchi", email: "giorgio.bianchi@test.com", password: "123", idiomaNativo: "Italiano" },
-    { id: 5, nombre: "Anna Weber", email: "anna.weber@test.com", password: "123", idiomaNativo: "Alemán" },
-    { id: 6, nombre: "Sara Esteve", email: "sara.esteve@test.com", password: "123", idiomaNativo: "Español" }
+    { id: 1, nombre: "Marina Soler", email: "marina.soler@uoc.edu", password: "123", idiomaNativo: "Español" },
+    { id: 2, nombre: "Pau Riera", email: "pau.riera@uoc.edu", password: "123", idiomaNativo: "Catalán" },
+    { id: 3, nombre: "Laia Ferrer", email: "laia.ferrer@uoc.edu", password: "123", idiomaNativo: "Catalán" },
+    { id: 4, nombre: "Giorgio Bianchi", email: "giorgio.bianchi@uoc.edu", password: "123", idiomaNativo: "Italiano" },
+    { id: 5, nombre: "Anna Weber", email: "anna.weber@uoc.edu", password: "123", idiomaNativo: "Alemán" },
+    { id: 6, nombre: "Sara Esteve", email: "sara.esteve@uoc.edu", password: "123", idiomaNativo: "Español" }
 ];
 
 export const intercambios = [

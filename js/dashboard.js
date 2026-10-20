@@ -1,9 +1,9 @@
-import { intercambios } from './data.js'
+import { intercambios } from '../data.js'
 
 const container = document.getElementById("contenedorTarjetas");
 const buttons = document.querySelectorAll("[data-filtro]");
 
-function crearTarjeta(item){
+function crearTarjeta(item) {
     const col = document.createElement("div");
     col.className = "col-12 col-lg-4 mb-4";
 
@@ -31,28 +31,28 @@ function crearTarjeta(item){
         strong.textContent = etiqueta + ": ";
         p.append(strong, valor);
         contenido.appendChild(p);
-      }
-    
-      tarjeta.appendChild(contenido);
-      col.appendChild(tarjeta);
-      return col;
-    }
-    
-    function showContent(lista) {
-      container.innerHTML = "";
-      lista.forEach((item) => container.appendChild(crearTarjeta(item)));
     }
 
-    showContent(intercambios);
+    tarjeta.appendChild(contenido);
+    col.appendChild(tarjeta);
+    return col;
+}
 
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const filtro = button.dataset.filtro;
-            const lista =
-                filtro === "todos"
-                    ? intercambios
-                    : intercambios.filter((i) => i.tipo === filtro);
-            showContent(lista);
-        });
+function showContent(lista) {
+    container.innerHTML = "";
+    lista.forEach((item) => container.appendChild(crearTarjeta(item)));
+}
+
+showContent(intercambios);
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const filtro = button.dataset.filtro;
+        const lista =
+            filtro === "todos"
+                ? intercambios
+                : intercambios.filter((i) => i.tipo === filtro);
+        showContent(lista);
     });
+});
 
