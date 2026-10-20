@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+
+  USO DE IA GENERATIVA
+  IA utilizada: Claude
+  Prompt 1: "Actúa como un profesor de desarrollo web y explícame de forma sencilla qué son HTML, CSS, Bootstrap y el diseño responsive, y qué diferencia hay entre diseñar el mockup en Figma y programar la página en VS Code."
+  Prompt 2: "Propón una estructura para usuarios.html con Bootstrap 5 (formulario de alta y tabla de usuarios) y explícame cada parte para poder entenderla y adaptarla a mi página."
+  Prompt 3: "Explícame qué hace cada parte de usuarios.html: cómo se reparten el formulario y la tabla en columnas responsive, para qué sirven los id de los campos y por qué no debe haber JavaScript dentro del HTML."
+  Prompt 4: "Analiza el mockup de Figma que ha hecho mi compañero, dime si cumple lo que piden el enunciado y la rúbrica y qué debo tener en cuenta para que mi página de usuarios sea coherente con él."
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de usuarios</title>
+
+  <!-- Bootstrap 5 (CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos propios del proyecto (los hace la Persona 1) -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- NAVBAR: aquí va la barra de navegación común que pasa la Persona 1 -->
+
+  <main class="container my-4">
+    <h1 class="mb-4">Gestión de usuarios</h1>
+
+    <div class="row g-4">
+
+      <!-- Columna izquierda: formulario de alta -->
+      <section class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="h5 card-title mb-3">Nuevo usuario</h2>
+
+            <form id="formUsuario" novalidate>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" id="nombre" class="form-control" placeholder="Ej: Ana López">
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Ej: ana@mail.com">
+              </div>
+
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" id="password" class="form-control">
+              </div>
+
+              <div class="mb-3">
+                <label for="idiomaNativo" class="form-label">Idioma nativo</label>
+                <select id="idiomaNativo" class="form-select">
+                  <option value="">Elige un idioma</option>
+                  <option value="Español">Español</option>
+                  <option value="Catalán">Catalán</option>
+                  <option value="Inglés">Inglés</option>
+                  <option value="Francés">Francés</option>
+                  <option value="Alemán">Alemán</option>
+                  <option value="Italiano">Italiano</option>
+                  <option value="Portugués">Portugués</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Registrar</button>
+            </form>
+
+            <!-- Aquí el JS pondrá los mensajes de éxito o error -->
+            <div id="mensaje" class="mt-3"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Columna derecha: tabla de usuarios -->
+      <section class="col-lg-8">
+        <h2 class="h5 mb-3">Usuarios registrados</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Idioma nativo</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <!-- Las filas las crea el JS -->
+            <tbody id="tablaUsuarios"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Bootstrap 5 (JS, para que funcione el menú desplegable de la navbar en móvil) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Nuestro script. type="module" para poder usar import -->
+  <script type="module" src="js/usuarios.js"></script>
+</body>
+</html>
