@@ -1,58 +1,99 @@
-import { intercambios } from '../data.js'
 
-const container = document.getElementById("contenedorTarjetas");
-const buttons = document.querySelectorAll("[data-filtro]");
+import { intercambios } from './datos.js';
 
-function crearTarjeta(item) {
-    const col = document.createElement("div");
-    col.className = "col-12 col-lg-4 mb-4";
+document.addEventListener('DOMContentLoaded', () => {
+    const contenedor = document.getElementById('contenedorTarjetas');
 
-    const tarjeta = document.createElement("div");
-    tarjeta.className = `card h-100 ${item.tipo}`;
+    // Función principal para inyectar las tarjetas en el HTML
+    const renderizarTarjetas = (datos) => {
+        contenedor.innerHTML = ''; // Limpiamos el contenedor antes de pintar
 
-    const contenido = document.createElement("div");
-    contenido.className = "card-body";
+        if (datos.length === 0) {
+            contenedor.innerHTML = '<p class="text-center text-muted w-100 mt-4">No hay intercambios para mostrar.</p>';
+            return;
+        }
 
-    const titulo = document.createElement("h5");
-    titulo.className = "tituloTarjeta";
-    titulo.textContent = item.tipo === "oferta" ? "Oferta" : "Petición";
-    contenido.appendChild(titulo);
+        datos.forEach(item => {
+            // Seleccionamos la clase CSS basándonos en el tipo (oferta o peticion)
+            const claseColor = item.tipo === 'oferta' ? 'oferta' : 'peticion';
 
-    const campos = [
-        ["Idioma", item.idioma],
-        ["Nivel", item.nivel],
-        ["Modalidad", item.modalidad],
-    ];
+            // Formateamos el texto de la etiqueta superior (Badge)
+            const badgeTexto = item.tipo === 'oferta' ? 'Oferta' : 'Petición';
 
-    for (const [etiqueta, valor] of campos) {
-        const p = document.createElement("p");
-        p.className = "card-text mb-1";
-        const strong = document.createElement("strong");
-        strong.textContent = etiqueta + ": ";
-        p.append(strong, valor);
-        contenido.appendChild(p);
+            // Extraemos la inicial del usuario para el avatar
+            const inicial = item.nombreUsuario ? item.nombreUsuario.charAt(0).toUpperCase() : 'U';
+
+            // Usamos Template Literals para crear la tarjeta 100% fiel al mockup de Figma
+            const tarjetaHTML = `
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100 tarjeta-hover shadow-sm ${claseColor} border-0 text-white">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-white text-dark rounded-pill px-3 py-1 shadow-sm">${badgeTexto}</span>
+                                <small class="fw-medium opacity-75">${item.fecha}</small>
+                            </div>
+                            
+                            <h5 class="card-title fw-bold mb-3">${item.titulo}</h5>
+                            <p class="card-text opacity-75 mb-4">${item.descripcion}</p>
+                            
+                            <ul class="list-unstyled mt-auto mb-4 small opacity-75">
+                                <li class="mb-1"><strong>Idioma:</strong> ${item.idioma}</li>
+                                <li class="mb-1"><strong>Nivel:</strong> ${item.nivel}</li>
+                                <li><strong>Modalidad:</strong> ${item.modalidad}</li>
+                            </ul>
+
+                            <div class="d-flex align-items-center mt-auto border-top border-white border-opacity-25 pt-3">
+                                <div class="rounded-circle bg-white text-dark d-flex justify-content-center align-items-center fw-bold me-3" style="width: 35px; height: 35px; font-size: 0.9rem;">
+                                    ${inicial}
+                                </div>
+                                <small class="fw-semibold" style="line-height: 1.2;">
+                                    Publicado por:<br>
+                                    <span class="opacity-75">${item.nombreUsuario}</span>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            // Inyectamos el bloque en el contenedor principal
+            contenedor.innerHTML += tarjetaHTML;
+        });
+    };
+
+    // 1. Pintamos todos los datos al cargar la página
+    renderizarTarjetas(intercambios);
+
+    // 2. Lógica para los botones de filtrado (Otras / Propias)
+    const btnOtras = document.querySelector('.btn-group button:nth-child(1)');
+    const btnPropias = document.querySelector('.btn-group button:nth-child(2)');
+
+    // Leemos si hay un usuario logueado en la memoria del navegador (Lo usará la Persona 3)
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+
+    if (btnOtras && btnPropias) {
+        btnOtras.addEventListener('click', () => {
+            // Cambiamos visualmente el botón activo
+            btnOtras.className = 'btn btn-primary px-4';
+            btnPropias.className = 'btn btn-outline-secondary bg-white text-dark px-4';
+
+            // Filtramos excluyendo al usuario actual (si lo hay)
+            const filtradas = usuarioLogueado ? intercambios.filter(i => i.emailUsuario !== usuarioLogueado) : intercambios;
+            renderizarTarjetas(filtradas);
+        });
+
+        btnPropias.addEventListener('click', () => {
+            // Cambiamos visualmente el botón activo
+            btnPropias.className = 'btn btn-primary px-4';
+            btnOtras.className = 'btn btn-outline-secondary bg-white text-dark px-4';
+
+            if (!usuarioLogueado) {
+                alert('Debes iniciar sesión para ver tus intercambios propios.');
+                renderizarTarjetas([]); // Vaciamos la vista si no hay sesión
+                return;
+            }
+            // Filtramos dejando solo las del usuario actual
+            const filtradas = intercambios.filter(i => i.emailUsuario === usuarioLogueado);
+            renderizarTarjetas(filtradas);
+        });
     }
-
-    tarjeta.appendChild(contenido);
-    col.appendChild(tarjeta);
-    return col;
-}
-
-function showContent(lista) {
-    container.innerHTML = "";
-    lista.forEach((item) => container.appendChild(crearTarjeta(item)));
-}
-
-showContent(intercambios);
-
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const filtro = button.dataset.filtro;
-        const lista =
-            filtro === "todos"
-                ? intercambios
-                : intercambios.filter((i) => i.tipo === filtro);
-        showContent(lista);
-    });
 });
-
