@@ -8,6 +8,7 @@
   Prompt 4: "Analiza el mockup de Figma que ha hecho mi compañero, dime si cumple lo que piden el enunciado y la rúbrica y qué debo tener en cuenta para que mi página de usuarios sea coherente con él."
 -->
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +19,12 @@
   <!-- Estilos propios del proyecto (los hace la Persona 1) -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body class="animacion-aparicion">
 
   <!-- ===== NAVBAR COMÚN (Persona 1) ===== -->
   <nav class="navbar navbar-expand-lg mb-5">
-    <div class="container">
+    <div class="container-fluid px-4">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
         <span class="logo-box">uoc</span>
         <span class="fw-bold fs-5 text-dark">UOCTandem</span>
@@ -62,7 +64,8 @@
       <section class="col-lg-5">
         <div class="card shadow-sm h-100">
           <div class="card-header bg-white py-3">
-            <h2 class="h5 mb-1"><span class="badge rounded-pill text-bg-light text-primary me-2">01</span>Alta de Usuario</h2>
+            <h2 class="h5 mb-1"><span class="badge rounded-pill text-bg-light text-primary me-2">01</span>Alta de
+              Usuario</h2>
             <p class="small text-muted mb-0">Registra un nuevo usuario en la plataforma.</p>
           </div>
           <div class="card-body">
@@ -113,7 +116,8 @@
       <section class="col-lg-7">
         <div class="card shadow-sm h-100">
           <div class="card-header bg-white py-3">
-            <h2 class="h5 mb-1"><span class="badge rounded-pill text-bg-light text-primary me-2">02</span>Consulta y Borrado de Usuarios</h2>
+            <h2 class="h5 mb-1"><span class="badge rounded-pill text-bg-light text-primary me-2">02</span>Consulta y
+              Borrado de Usuarios</h2>
             <p class="small text-muted mb-0" id="contadorUsuarios">0 usuarios registrados</p>
           </div>
           <div class="table-responsive">
@@ -142,4 +146,5 @@
   <!-- Lógica de la página. type="module" para poder usar import -->
   <script type="module" src="js/usuarios.js"></script>
 </body>
+
 </html>

@@ -1,3 +1,11 @@
+/*
+USO DE IA GENERATIVA
+IA utilizada: Gemini
+Prompt 1: "Explícame la importación modular desde datos.js y el uso del evento DOMContentLoaded."
+Prompt 2: "Muéstrame cómo recorrer el array para renderizar tarjetas HTML con Bootstrap y Template Literals."
+Prompt 3: "Indícame cómo asignar clases condicionales de color para ofertas y peticiones y cómo extraer la inicial del usuario."
+Prompt 4: "Detalla cómo programar el filtrado interactivo con addEventListener para los botones de 'Otras' y 'Propias'."
+*/
 
 import { intercambios } from './datos.js';
 

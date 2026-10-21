@@ -1,9 +1,10 @@
-
 /* 
-Prompt 1: Pendiente de documentar.
-Prompt 2: Pendiente de documentar.
-Prompt 3: Pendiente de documentar.
-Prompt 4: Pendiente de documentar.
+  USO DE IA GENERATIVA
+  IA utilizada: Gemini
+  Prompt 1: "Estruturame un array modular de exportación con los datos simulados de usuarios registrados y sus credenciales de acceso."
+  Prompt 2: "Defineme un array estructurado de intercambios diferenciando claramente entre ofertas y peticiones con sus respectivos metadatos."
+  Prompt 3: "Agrúpame los registros con información detallada de idiomas, niveles, modalidades, descripciones y fechas de publicación."
+  Prompt 4: "Asociame cada intercambio de forma coherente con el correo y nombre del usuario propietario correspondiente del sistema."
 */
 
 export const usuarios = [
