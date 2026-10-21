@@ -1,3 +1,12 @@
+/* 
+  USO DE IA GENERATIVA
+  IA utilizada: Gemini
+  Prompt 1: "Hazme la conexión para traer los datos y prepárame las funciones básicas para mostrar avisos en pantalla, crear nuevos IDs y rellenar la lista de usuarios."
+  Prompt 2: "Prográmame la tabla para que se dibuje sola, metiendo las filas una a una y poniéndoles etiquetas de colores según si es una oferta o una petición."
+  Prompt 3: "Constrúyeme la parte del formulario para recoger lo que escribe el usuario, comprobar que no haya campos vacíos y guardarlo en nuestra lista de intercambios."
+  Prompt 4: "Configúrame el botón de borrar para que, al hacer clic en la tabla, nos pida confirmación primero y luego elimine ese intercambio de la memoria."
+*/
+
 
 // ===== IMPORTACIÓN DE DATOS (programación modular) =====
 // Los datos están solo en datos.js; aquí únicamente los usamos.
